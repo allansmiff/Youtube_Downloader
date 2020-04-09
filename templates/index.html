@@ -1,0 +1,65 @@
+{% load static %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Allan Smiff</title>
+
+{% bootstrap_css %}
+</head>
+<body>
+{% block content %}
+<div class="container" style="width:50%;">
+    <h2>Baixar vídeo do youtube</h2>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+
+      {% endfor %}
+  {% endif %}
+    <form method="POST" class="post-form">{% csrf_token %}
+        <div class="form-group">
+        <label>link do youtube</label>
+        <input type="url" class="form-control" required="required" name="link">
+    </div>
+        <button type="submit" class="save btn btn-success">Download</button>
+    </form>
+</div>
+{% endblock %}
+
+<!--================Footer Area =================-->
+	<footer class="footer_area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-12">
+					<div class="footer_top flex-column">
+						<div class="footer_logo">
+							<a href="#">
+								<img src="{% static 'img/logo.png' %}" alt="">
+							</a>
+							<h4></h4>
+						</div>
+						<div class="footer_social">
+
+							<a href="https://github.com/allansmiff" target="_blank"><i class="fa fa-github"></i> </a>
+							<a href="https://www.linkedin.com/in/allan-santos0603/ "target="_blank"><i class="fa fa-linkedin"></i></a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row footer_bottom justify-content-center">
+				<p class="col-lg-8 col-sm-12 footer-text">
+
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://portfolio-smiff.herokuapp.com/" target="_blank">Allan Smiff</a>
+</p>
+			</div>
+		</div>
+	</footer>
+
+	<!--================End Footer Area =================-->
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% bootstrap_javascript %}
+</body>
+</html>
